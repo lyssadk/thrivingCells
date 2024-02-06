@@ -1,0 +1,17 @@
+{
+    "get": {
+        "tags": [
+            "User"
+        ],
+        "summary": "Get user by id",
+        "description": "Get user by id",
+        "operationId": "getUserById",
+        "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "description": "ID of user to return"
+            }
+        ]
+    }
+}
