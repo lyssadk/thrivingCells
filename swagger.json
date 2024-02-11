@@ -1,17 +1,43 @@
 {
+    "swagger": "2.0",
+        "info": {
+        "title": "Items",
+        "description": "Contacts API",
+        "version": "1.0.0"
+},
+"host": "cse341-winter-2mg3.onrender.com",
+"basePath": "/",
+"schemes": [
+  "https"
+],
+"paths": {
+  "/api-docs": {
     "get": {
-        "tags": [
-            "User"
-        ],
-        "summary": "Get user by id",
-        "description": "Get user by id",
-        "operationId": "getUserById",
-        "parameters": [
-            {
-                "name": "id",
-                "in": "path",
-                "description": "ID of user to return"
-            }
-        ]
+      "description": "",
+      "parameters": [],
+      "responses": {}
     }
-}
+  },
+  "/items/": {
+    "get": {
+      "description": "Get all items",
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [],
+      "responses": {
+            "200": {
+            "description": "OK"
+            }
+        }
+    }
+},
+"responses": {
+    "204": {
+      "description": "No Content"
+    },
+    "500": {
+      "description": "Internal Server Error"
+    }
+  }
+}}
