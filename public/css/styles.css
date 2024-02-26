@@ -1,0 +1,11 @@
+#wrapper{
+    background-image: url('../images/national-cancer-institute-L7en7Lb-Ovc-unsplash.jpg');
+}
+
+#schedule{
+    display: grid;
+}
+
+#featured{
+    display: flex;
+}
