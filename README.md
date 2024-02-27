@@ -11,18 +11,19 @@ So i did a basic home page that currently isn't dynamically generating anything,
 The one i also have is an inventory page that will generate a display for everything in her inventory and then she should be able to clikc on an individual item and edit the different features of it. 
 
 # Development Environment
-Node.js
-Express
-Javascript
-HTML
-CSS
-VSCODE
-Render
-MONGODB
+- Node.js
+- Express
+- Javascript
+- HTML
+- CSS
+- VSCODE
+- Render
+- MONGODB
+- swagger
 
 # Useful Websites
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+* [express docs on routing](https://expressjs.com/en/guide/routing.html)
+* [express docs on req](https://expressjs.com/en/4x/api.html#req)
 
 # Future Work
 * Appointment scheduler
