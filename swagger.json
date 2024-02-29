@@ -2,7 +2,7 @@
     "swagger": "2.0",
         "info": {
         "title": "Items",
-        "description": "Contacts API",
+        "description": "Items API",
         "version": "1.0.0"
 },
 "host": "inventory-co7o.onrender.com",
