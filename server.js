@@ -9,7 +9,7 @@ const { auth, requiresAuth } = require('express-openid-connect');
 const config = {
   authRequired: false,
   auth0Logout: true,
-  baseURL: 'http://localhost:8080',
+  baseURL: 'https://thrivingcells.onrender.com',
   clientID: process.env.CLIENT_ID,
   issuerBaseURL: process.env.DOMAIN,
   secret: process.env.CLIENT_SECRET
