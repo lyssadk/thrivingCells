@@ -5,7 +5,7 @@
         "description": "Items API",
         "version": "1.0.0"
 },
-"host": "inventory-co7o.onrender.com",
+"host": "https://thrivingcells.onrender.com",
 "basePath": "/",
 "schemes": [
   "https"
