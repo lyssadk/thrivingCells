@@ -1,5 +1,5 @@
 const mongodb = require('../db/connect');
-
+const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res, next) => {
   const result = await mongodb.getDb().db().collection('Items').find();
@@ -19,8 +19,57 @@ const getSingle = async (req, res, next) => {
     });
   };
 
-module.exports = {
-    getAll,
-    getSingle
+
+const createItem = async (req, res) => {
+  const item = {
+    name: req.body.name,
+    quantity: req.body.quantity,
+    wholesale: req.body.wholesale,
   };
-  
+  const response = await mongodb.getDb().db().collection('items').insertOne(item);
+  if (response.acknowledged) {
+    res.status(201).json(response);
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+  }
+};
+
+const updateItem = async (req, res) => {
+  const userId = new ObjectId(req.params.id);
+  const item = {
+    name: req.body.name,
+    quantity: req.body.quantity,
+    wholesale: req.body.wholesale,
+  };
+  const response = await mongodb
+    .getDb()
+    .db()
+    .collection('items')
+    .replaceOne({ _id: userId }, item);
+  console.log(response);
+  if (response.modifiedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+  }
+};
+
+const deleteItem = async (req, res) => {
+  const userId = new ObjectId(req.params.id);
+  const response = await mongodb.getDb().db().collection('contacts').remove({ _id: userId }, true);
+  console.log(response);
+  if (response.deletedCount > 0) {
+    res.status(204).send();
+  } else {
+    res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+  }
+};
+
+module.exports = {
+  getAll,
+  getSingle,
+  createItem,
+  updateItem,
+  deleteItem
+};
+
