@@ -5,7 +5,7 @@
     "description": "API documentation for inventory",
     "version": "1.0.0"
   },
-  "host": "https://thrivingcells.onrender.com",
+  "host": "thrivingcells.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
