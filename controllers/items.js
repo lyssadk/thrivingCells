@@ -20,19 +20,26 @@ const getSingle = async (req, res, next) => {
   };
 
 
-const createItem = async (req, res) => {
-  const item = {
-    name: req.body.name,
-    quantity: req.body.quantity,
-    wholesale: req.body.wholesale,
+  const createItem = async (req, res) => {
+    try {
+      const item = {
+        name: req.body.name,
+        quantity: req.body.quantity,
+        wholesale: req.body.wholesale,
+      };
+  
+      const response = await mongodb.getDb().db().collection('items').insertOne(item);
+  
+      if (response.acknowledged) {
+        res.status(201).json(response.ops[0]); // Send the inserted item in the response
+      } else {
+        res.status(500).json({ error: 'Some error occurred while creating the item.' });
+      }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
   };
-  const response = await mongodb.getDb().db().collection('items').insertOne(item);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the contact.');
-  }
-};
+  
 
 const updateItem = async (req, res) => {
   const userId = new ObjectId(req.params.id);
