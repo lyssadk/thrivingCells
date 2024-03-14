@@ -44,7 +44,7 @@ const updateItem = async (req, res) => {
   const response = await mongodb
     .getDb()
     .db()
-    .collection('items')
+    .collection('Items')
     .updateOne({ _id: userId }, item);
   console.log(response);
   if (response.modifiedCount > 0) {
