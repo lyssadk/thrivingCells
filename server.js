@@ -5,6 +5,7 @@ const mongodb = require('./db/connect');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const app = express();
+const port = process.env.PORT || 8080;
 const { auth, requiresAuth } = require('express-openid-connect');
 const config = {
   authRequired: false,
@@ -32,7 +33,6 @@ app.get('/profile', requiresAuth(), (req, res) => {
 });
 
 
-const port = process.env.PORT || 8080;
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "layouts/layout");

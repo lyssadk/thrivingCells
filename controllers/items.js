@@ -45,7 +45,7 @@ const updateItem = async (req, res) => {
     .getDb()
     .db()
     .collection('items')
-    .replaceOne({ _id: userId }, item);
+    .updateOne({ _id: userId }, item);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -56,7 +56,7 @@ const updateItem = async (req, res) => {
 
 const deleteItem = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db().collection('contacts').remove({ _id: userId }, true);
+  const response = await mongodb.getDb().db().collection('Items').deleteOne({ _id: userId });
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
