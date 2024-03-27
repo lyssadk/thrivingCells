@@ -45,7 +45,7 @@ const updateItem = async (req, res) => {
     .getDb()
     .db()
     .collection('Items')
-    .updateOne({ _id: userId }, item);
+    .updateOne({ _id: userId }, { $set: item });
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
